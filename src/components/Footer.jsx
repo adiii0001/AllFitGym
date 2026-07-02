@@ -41,15 +41,15 @@ const contactInfo = [
 export default function Footer() {
   return (
     <footer
-      className="mt-32 border-t border-white/[0.08] px-4 sm:px-8 lg:px-16 bg-dark-100"
+      className="mt-32 border-t border-white/[0.08] bg-dark-100"
       style={{
         paddingTop: "90px",
         paddingBottom: "40px",
       }}
     >
       <div className="premium-container mb-24 lg:mb-32">
-        <div className="grid grid-cols-2 lg:grid-cols-12 gap-y-12 gap-x-6 sm:gap-x-16 lg:gap-x-24">
-          <div className="col-span-2 lg:col-span-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-y-12 gap-x-6 sm:gap-x-16 lg:gap-x-24">
+          <div className="col-span-1 sm:col-span-2 lg:col-span-4">
             <a href="#home" className="flex items-center gap-3 mb-10">
               <div className="rounded-xl flex items-center justify-center overflow-hidden" style={{ width: "90px", height: "90px" }}>
                 <img
@@ -161,7 +161,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          <div className="col-span-2 lg:col-span-3">
+          <div className="col-span-1 sm:col-span-2 lg:col-span-3">
             <h4
               className="text-xs font-bold text-text-muted uppercase tracking-[0.15em]"
               style={{ paddingBottom: "24px" }}
@@ -182,7 +182,7 @@ export default function Footer() {
               <input
                 type="email"
                 placeholder="your@email.com"
-                className="flex-1 bg-white/[0.03] border border-white/[0.06] rounded-xl text-sm text-white placeholder-text-muted focus:outline-none focus:border-purple/40 transition-colors"
+                className="flex-1 min-w-0 bg-white/[0.03] border border-white/[0.06] rounded-xl text-sm text-white placeholder-text-muted focus:outline-none focus:border-purple/40 transition-colors"
                 style={{ paddingLeft: "16px", paddingRight: "16px", paddingTop: "14px", paddingBottom: "14px" }}
               />
               <button className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple to-purple-dark flex items-center justify-center hover:shadow-lg hover:shadow-purple/20 transition-all shrink-0">
