@@ -1,6 +1,6 @@
 "use client";
 import { motion, useInView } from "framer-motion";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Bot, Sparkles, Dumbbell, Salad, Beef, HelpCircle, Calendar, UserPlus, CheckCircle } from "lucide-react";
 
 const quickActions = [
@@ -40,11 +40,21 @@ function getResp(input) {
 
 export default function AIAssistant() {
   const ref = useRef(null);
+  const chatRef = useRef(null);
   const inview = useInView(ref, { once: true, margin: "-80px" });
   const [msgs, setMsgs] = useState([
     { role: "bot", text: "Hi! I'm your AI Fitness Assistant.\n\nAsk me anything about ALL FIT GYM — plans, workouts, diet, or book a free trial!" },
   ]);
   const [input, setInput] = useState("");
+
+  useEffect(() => {
+    const chat = chatRef.current;
+    if (!chat) return;
+    const frame = requestAnimationFrame(() => {
+      chat.scrollTo({ top: chat.scrollHeight, behavior: "smooth" });
+    });
+    return () => cancelAnimationFrame(frame);
+  }, [msgs]);
 
   const handle = (text) => {
     const q = text || input;
@@ -145,6 +155,7 @@ export default function AIAssistant() {
               </div>
 
               <div
+                ref={chatRef}
                 className="overflow-y-auto"
                 style={{
                   height: "360px",

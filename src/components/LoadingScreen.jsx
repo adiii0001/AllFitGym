@@ -88,7 +88,7 @@ export default function LoadingScreen({ onFinish }) {
             <circle
               cx="90"
               cy="90"
-              r="75"
+              r="68"
               fill="none"
               stroke="rgba(255, 255, 255, 0.03)"
               strokeWidth="4"
@@ -98,7 +98,7 @@ export default function LoadingScreen({ onFinish }) {
             <motion.circle
               cx="90"
               cy="90"
-              r="75"
+              r="68"
               fill="none"
               stroke="#a855f7"
               strokeWidth="4"
@@ -115,8 +115,8 @@ export default function LoadingScreen({ onFinish }) {
                 attributeName="transform"
                 type="rotate"
                 from="0 90 90"
-                to="360 90 90"
-                dur="3.5s"
+                to="720 90 90"
+                dur="1.2s"
                 repeatCount="indefinite"
               />
               {/* Handle (Chrome shaft in center) */}
@@ -188,16 +188,16 @@ export default function LoadingScreen({ onFinish }) {
               }}
               animate={{
                 x: [
-                  Math.cos((i * 60 * Math.PI) / 180) * 75,
-                  Math.cos(((i * 60 + 120) * Math.PI) / 180) * 85,
-                  Math.cos(((i * 60 + 240) * Math.PI) / 180) * 75,
-                  Math.cos(((i * 60 + 360) * Math.PI) / 180) * 75,
+                  Math.cos((i * 60 * Math.PI) / 180) * 68,
+                  Math.cos(((i * 60 + 120) * Math.PI) / 180) * 76,
+                  Math.cos(((i * 60 + 240) * Math.PI) / 180) * 68,
+                  Math.cos(((i * 60 + 360) * Math.PI) / 180) * 68,
                 ],
                 y: [
-                  Math.sin((i * 60 * Math.PI) / 180) * 75,
-                  Math.sin(((i * 60 + 120) * Math.PI) / 180) * 85,
-                  Math.sin(((i * 60 + 240) * Math.PI) / 180) * 75,
-                  Math.sin(((i * 60 + 360) * Math.PI) / 180) * 75,
+                  Math.sin((i * 60 * Math.PI) / 180) * 68,
+                  Math.sin(((i * 60 + 120) * Math.PI) / 180) * 76,
+                  Math.sin(((i * 60 + 240) * Math.PI) / 180) * 68,
+                  Math.sin(((i * 60 + 360) * Math.PI) / 180) * 68,
                 ],
                 scale: [0.8, 1.4, 0.6, 0.8],
                 opacity: [0.4, 1, 0.3, 0.4],
