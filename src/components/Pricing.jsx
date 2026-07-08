@@ -46,7 +46,7 @@ export default function Pricing() {
   }, [selectedPlan]);
 
   return (
-    <section id="pricing" ref={ref} className="py-24 lg:py-[120px] bg-dark-100">
+    <section id="pricing" ref={ref} className="overflow-hidden bg-dark-100 py-20 sm:py-24 lg:py-[120px]">
       <div className="premium-container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -77,7 +77,7 @@ export default function Pricing() {
         </motion.div>
 
         <div
-          className="flex w-full snap-x snap-mandatory items-stretch justify-start gap-6 overflow-x-auto pb-8 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden sm:gap-8 xl:justify-center"
+          className="flex w-full max-w-full snap-x snap-mandatory items-stretch justify-start gap-5 overflow-x-auto overscroll-x-contain pb-8 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden sm:gap-8 xl:justify-center"
           style={{ touchAction: "pan-x pan-y", paddingTop: "28px" }}
           onWheel={(event) => {
             if (Math.abs(event.deltaY) > Math.abs(event.deltaX)) {
@@ -92,7 +92,7 @@ export default function Pricing() {
               initial={{ opacity: 0, y: 28 }}
               animate={inview ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.4, delay: i * 0.1 }}
-              className={`relative w-[calc(100vw-4rem)] shrink-0 snap-center rounded-3xl transition-all duration-500 sm:w-[350px] ${
+              className={`relative w-full max-w-full shrink-0 snap-center rounded-3xl transition-all duration-500 sm:w-[350px] ${
                 p.popular
                   ? "bg-gradient-to-b from-dark-300 to-dark-200 border border-purple/[0.12] shadow-xl shadow-purple/[0.05] xl:scale-[1.03]"
                   : "glass hover:bg-white/[0.03]"
@@ -101,7 +101,7 @@ export default function Pricing() {
             >
               {p.popular && (
                 <div
-                  className="absolute left-1/2 -translate-x-1/2 bg-gradient-to-r from-purple to-purple-hover text-white text-xs font-bold rounded-full flex items-center gap-1.5 shadow-lg shadow-purple/20 whitespace-nowrap"
+                  className="absolute left-1/2 flex max-w-[calc(100%-1.5rem)] -translate-x-1/2 items-center gap-1.5 whitespace-nowrap rounded-full bg-gradient-to-r from-purple to-purple-hover text-xs font-bold text-white shadow-lg shadow-purple/20"
                   style={{
                     padding: "10px 24px",
                     top: "-20px",
@@ -114,7 +114,7 @@ export default function Pricing() {
 
               <div
                 className="text-center flex-1 flex flex-col justify-between"
-                style={{ padding: "48px 36px" }}
+                style={{ padding: "clamp(34px, 8vw, 48px) clamp(20px, 6vw, 36px)" }}
               >
                 <div>
                   <div className="text-xs font-semibold text-purple uppercase tracking-[0.15em] mb-4">
@@ -124,7 +124,7 @@ export default function Pricing() {
 
                   <div className="flex items-baseline justify-center gap-1.5 mb-12">
                     <span className="text-lg text-text-muted font-medium">₹</span>
-                    <span className="text-5xl lg:text-6xl font-display font-bold text-white tracking-tight">{p.price}</span>
+                    <span className="font-display text-5xl font-bold tracking-tight text-white lg:text-6xl">{p.price}</span>
                     <span className="text-base text-text-muted">/mo</span>
                   </div>
 
@@ -190,11 +190,11 @@ export default function Pricing() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.96, y: 12 }}
               transition={{ duration: 0.22, ease: "easeOut" }}
-              className="relative w-full max-w-md overflow-hidden rounded-3xl border border-white/[0.1] bg-dark-200 shadow-2xl shadow-black/60"
+              className="relative max-h-[calc(100svh-2rem)] w-full max-w-md overflow-y-auto overflow-x-hidden rounded-3xl border border-white/[0.1] bg-dark-200 shadow-2xl shadow-black/60"
             >
               <div
                 className="border-b border-white/[0.07]"
-                style={{ padding: "32px 36px 28px" }}
+                style={{ padding: "clamp(24px, 7vw, 32px) clamp(20px, 7vw, 36px) clamp(22px, 6vw, 28px)" }}
               >
                 <button
                   type="button"
@@ -220,7 +220,7 @@ export default function Pricing() {
                 </div>
               </div>
 
-              <div style={{ padding: "28px 36px 36px" }}>
+              <div style={{ padding: "clamp(24px, 7vw, 28px) clamp(20px, 7vw, 36px) clamp(28px, 8vw, 36px)" }}>
                 <p className="text-sm font-semibold text-white" style={{ marginBottom: "22px" }}>Everything included</p>
                 <ul style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
                   {selectedPlan.features.map((feature) => (

@@ -48,15 +48,15 @@ export default function Stats() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
+        <div className="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4 lg:gap-10">
           {items.map((item, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 24 }}
               animate={inview ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.4, delay: i * 0.1 }}
-              className="glass rounded-2xl text-center transition-all duration-300 hover:-translate-y-0.5"
-              style={{ padding: "48px 32px" }}
+              className="min-w-0 rounded-2xl text-center transition-all duration-300 hover:-translate-y-0.5 glass"
+              style={{ padding: "clamp(18px, 6vw, 48px) clamp(12px, 4vw, 32px)" }}
             >
               <div className={`w-12 h-12 rounded-2xl ${item.bg} flex items-center justify-center mx-auto mb-6`}>
                 <item.icon className={`w-5 h-5 ${item.color}`} />
@@ -64,8 +64,8 @@ export default function Stats() {
               <div className="text-2xl lg:text-3xl font-display font-bold text-white mb-2">
                 {item.value}
               </div>
-              <div className="text-sm font-medium text-text-secondary mb-2.5">{item.label}</div>
-              <div className="text-xs text-text-muted leading-relaxed">{item.desc}</div>
+              <div className="mb-2.5 text-sm font-medium leading-snug text-text-secondary">{item.label}</div>
+              <div className="text-xs leading-relaxed text-text-muted">{item.desc}</div>
             </motion.div>
           ))}
         </div>

@@ -68,14 +68,14 @@ export default function AIAssistant() {
     <section
       id="ai-assistant"
       ref={ref}
-      className="bg-dark-100"
+      className="overflow-hidden bg-dark-100"
       style={{
         paddingTop: "clamp(30px, 3vw, 50px)",
         paddingBottom: "clamp(40px, 4vw, 60px)"
       }}
     >
       <div className="premium-container">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="grid min-w-0 gap-12 lg:grid-cols-2 lg:gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, x: -32 }}
             animate={inview ? { opacity: 1, x: 0 } : {}}
@@ -104,17 +104,17 @@ export default function AIAssistant() {
               ))}
             </div>
 
-            <div className="grid sm:grid-cols-2 gap-3">
+            <div className="grid gap-3 sm:grid-cols-2">
               {quickActions.map((a, i) => (
                 <button
                   key={i}
                   onClick={() => handle(a.query)}
-                  className="flex items-center gap-3 glass rounded-xl px-4 py-3.5 text-left transition-all duration-200 hover:bg-white/[0.03]"
+                  className="flex min-w-0 items-center gap-3 rounded-xl px-4 py-3.5 text-left transition-all duration-200 hover:bg-white/[0.03] glass"
                 >
                   <div className="w-8 h-8 rounded-lg bg-purple/10 flex items-center justify-center shrink-0">
                     <a.icon className="w-3.5 h-3.5 text-purple" />
                   </div>
-                  <span className="text-sm font-medium text-text-secondary">{a.label}</span>
+                  <span className="min-w-0 text-sm font-medium leading-snug text-text-secondary">{a.label}</span>
                 </button>
               ))}
             </div>
@@ -124,15 +124,15 @@ export default function AIAssistant() {
             initial={{ opacity: 0, x: 32 }}
             animate={inview ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="lg:max-w-[600px] lg:ml-auto w-full"
+            className="w-full min-w-0 lg:ml-auto lg:max-w-[600px]"
           >
             <div
               className="glass rounded-[24px] overflow-hidden shadow-2xl shadow-black/40"
-              style={{ background: "rgba(23, 26, 32, 0.8)", border: "1px solid rgba(255, 255, 255, 0.08)", padding: "12px" }}
+              style={{ background: "rgba(23, 26, 32, 0.8)", border: "1px solid rgba(255, 255, 255, 0.08)", padding: "clamp(8px, 3vw, 12px)" }}
             >
               <div
-                className="bg-white/[0.02] flex items-center gap-3"
-                style={{ padding: "16px 20px", borderRadius: "16px" }}
+                className="flex min-w-0 items-center gap-3 bg-white/[0.02]"
+                style={{ padding: "clamp(12px, 4vw, 16px) clamp(14px, 5vw, 20px)", borderRadius: "16px" }}
               >
                 <div
                   className="rounded-lg flex items-center justify-center overflow-hidden"
@@ -145,7 +145,7 @@ export default function AIAssistant() {
                     style={{ transform: "scale(2.5)", transformOrigin: "center" }}
                   />
                 </div>
-                <div>
+                <div className="min-w-0">
                   <div className="text-sm font-bold text-white">ALL FIT AI</div>
                   <div className="text-xs text-success/70 flex items-center gap-1">
                     <div className="w-1.5 h-1.5 rounded-full bg-success" />
@@ -159,7 +159,7 @@ export default function AIAssistant() {
                 className="overflow-y-auto"
                 style={{
                   height: "360px",
-                  padding: "24px 16px",
+                  padding: "clamp(18px, 5vw, 24px) clamp(10px, 4vw, 16px)",
                   display: "flex",
                   flexDirection: "column",
                   gap: "18px",
@@ -173,13 +173,13 @@ export default function AIAssistant() {
                     className={`flex ${m.role === "user" ? "justify-end" : "justify-start"}`}
                   >
                     <div
-                      className={`max-w-[85%] rounded-[18px] text-[13px] leading-relaxed whitespace-pre-line ${
+                      className={`max-w-[90%] break-words rounded-[18px] text-[13px] leading-relaxed whitespace-pre-line sm:max-w-[85%] ${
                         m.role === "user"
                           ? "bg-purple/20 text-white rounded-br-sm"
                           : "bg-white/[0.03] text-text-secondary rounded-bl-sm"
                       }`}
                       style={{
-                        padding: "14px 20px",
+                        padding: "14px clamp(14px, 4vw, 20px)",
                         border: m.role === "user" ? "1px solid rgba(139, 92, 246, 0.2)" : "1px solid rgba(255, 255, 255, 0.04)",
                       }}
                     >
@@ -192,15 +192,15 @@ export default function AIAssistant() {
               <div
                 style={{ padding: "8px" }}
               >
-                <div className="flex gap-3" style={{ alignItems: "center" }}>
+                <div className="flex min-w-0 gap-2 sm:gap-3" style={{ alignItems: "center" }}>
                   <input
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
                     onKeyDown={(e) => e.key === "Enter" && handle()}
                     placeholder="Ask about plans, workouts, diet..."
-                    className="flex-1 text-sm text-white placeholder-text-muted focus:outline-none transition-colors"
+                    className="min-w-0 flex-1 text-sm text-white placeholder-text-muted focus:outline-none transition-colors"
                     style={{
-                      padding: "14px 20px",
+                      padding: "14px clamp(12px, 4vw, 20px)",
                       background: "rgba(255, 255, 255, 0.03)",
                       border: "1px solid rgba(255, 255, 255, 0.06)",
                       borderRadius: "12px",

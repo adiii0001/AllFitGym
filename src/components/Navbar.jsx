@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Dumbbell } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 const links = [
   { name: "Home", href: "#home" },
@@ -46,7 +46,7 @@ export default function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="fixed top-0 left-0 right-0 z-50 h-16 lg:h-[72px] flex items-center"
+      className="sticky top-0 left-0 right-0 z-50 flex h-16 items-center lg:fixed lg:h-[72px]"
       style={{
         background: scrolled
           ? "rgba(15,17,21,0.85)"
@@ -57,9 +57,9 @@ export default function Navbar() {
         transition: "all 0.3s ease",
       }}
     >
-      <div className="premium-container flex items-center justify-between w-full">
-        <a href="#home" className="flex items-center gap-2.5 shrink-0 group">
-          <div className="rounded-xl flex items-center justify-center overflow-hidden" style={{ width: "72px", height: "72px" }}>
+      <div className="premium-container flex w-full min-w-0 items-center justify-between">
+        <a href="#home" className="group flex min-w-0 shrink-0 items-center gap-2.5">
+          <div className="flex items-center justify-center overflow-hidden rounded-xl" style={{ width: "clamp(56px, 14vw, 72px)", height: "clamp(56px, 14vw, 72px)" }}>
             <img
               src="/images/93ee5950-3ef0-4cbb-981f-2562cb0c55d8-removebg-preview.png"
               alt="Logo"
@@ -67,12 +67,12 @@ export default function Navbar() {
               style={{ transform: "scale(2.5)", transformOrigin: "center" }}
             />
           </div>
-          <span className="font-display font-bold tracking-tight text-white text-base">
+          <span className="whitespace-nowrap font-display text-sm font-bold tracking-tight text-white sm:text-base">
             ALL FIT <span className="gradient-text">GYM</span>
           </span>
         </a>
 
-        <div className="hidden lg:flex items-center justify-center flex-1 gap-3">
+        <div className="hidden min-w-0 flex-1 items-center justify-center gap-1 lg:flex xl:gap-3">
           {links.map((l) => {
             const isActive = active === l.href.slice(1);
             return (
@@ -84,7 +84,7 @@ export default function Navbar() {
                   document.querySelector(l.href)?.scrollIntoView({ behavior: "smooth" });
                   setActive(l.href.slice(1));
                 }}
-                className="relative px-6 py-2 text-sm font-medium transition-all duration-300"
+                className="relative px-3 py-2 text-sm font-medium transition-all duration-300 xl:px-5 2xl:px-6"
                 style={{ color: isActive ? "white" : "rgba(255,255,255,0.6)" }}
               >
                 {l.name}
@@ -180,4 +180,3 @@ export default function Navbar() {
     </motion.nav>
   );
 }
-

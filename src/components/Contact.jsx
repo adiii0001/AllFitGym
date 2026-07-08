@@ -35,7 +35,7 @@ export default function Contact() {
     <section
       id="contact"
       ref={ref}
-      className="bg-dark-100"
+      className="overflow-hidden bg-dark-100"
       style={{
         paddingTop: "clamp(30px, 3vw, 50px)",
         paddingBottom: "clamp(40px, 4vw, 60px)"
@@ -60,7 +60,7 @@ export default function Contact() {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start ">
+        <div className="grid min-w-0 gap-10 lg:grid-cols-2 lg:gap-16 items-start">
           <motion.div
             initial={{ opacity: 0, x: -32 }}
             animate={inview ? { opacity: 1, x: 0 } : {}}
@@ -69,17 +69,17 @@ export default function Contact() {
           >
             <div
               className="rounded-[20px]"
-              style={{ background: "#171A20", border: "1px solid rgba(255,255,255,0.08)", padding: "28px" }}
+              style={{ background: "#171A20", border: "1px solid rgba(255,255,255,0.08)", padding: "clamp(20px, 6vw, 28px)" }}
             >
               <h3 className="font-['Poppins'] text-xl font-semibold text-white" style={{ marginBottom: "24px" }}>Get in Touch</h3>
 
               <div style={{ display: "flex", flexDirection: "column", gap: "28px" }}>
-                <div className="flex items-start gap-4">
+                <div className="flex min-w-0 items-start gap-4">
                   <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0"
                     style={{ background: "rgba(139,92,246,0.1)" }}>
                     <MapPin className="w-5 h-5" style={{ color: "#A855F7" }} />
                   </div>
-                  <div>
+                  <div className="min-w-0">
                     <div className="font-['Poppins'] text-sm font-medium text-white mb-2">Address</div>
                     <div className="font-['Poppins'] text-sm leading-relaxed" style={{ color: "#9CA3AF" }}>
                       2935, Block C, Sushant Lok Phase I, Sector 43,<br />
@@ -88,12 +88,12 @@ export default function Contact() {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
+                <div className="flex min-w-0 items-start gap-4">
                   <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0"
                     style={{ background: "rgba(139,92,246,0.1)" }}>
                     <Phone className="w-5 h-5" style={{ color: "#A855F7" }} />
                   </div>
-                  <div>
+                  <div className="min-w-0">
                     <div className="font-['Poppins'] text-sm font-medium text-white mb-2">Phone</div>
                     <a href="tel:+919667949344" className="font-['Poppins'] text-sm transition-colors" style={{ color: "#9CA3AF" }}
                       onMouseEnter={(e) => e.target.style.color = "#A855F7"}
@@ -103,12 +103,12 @@ export default function Contact() {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
+                <div className="flex min-w-0 items-start gap-4">
                   <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0"
                     style={{ background: "rgba(139,92,246,0.1)" }}>
                     <Mail className="w-5 h-5" style={{ color: "#A855F7" }} />
                   </div>
-                  <div>
+                  <div className="min-w-0">
                     <div className="font-['Poppins'] text-sm font-medium text-white mb-2">Email</div>
                     <a href="mailto:info@allfitgym.com" className="font-['Poppins'] text-sm transition-colors" style={{ color: "#9CA3AF" }}
                       onMouseEnter={(e) => e.target.style.color = "#A855F7"}
@@ -118,12 +118,12 @@ export default function Contact() {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
+                <div className="flex min-w-0 items-start gap-4">
                   <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0"
                     style={{ background: "rgba(139,92,246,0.1)" }}>
                     <Clock className="w-5 h-5" style={{ color: "#A855F7" }} />
                   </div>
-                  <div>
+                  <div className="min-w-0">
                     <div className="font-['Poppins'] text-sm font-medium text-white mb-2">Timings</div>
                     <div className="font-['Poppins'] text-sm" style={{ color: "#9CA3AF" }}>
                       Mon - Sat: 5:30 AM - 10:00 PM<br />
@@ -133,12 +133,12 @@ export default function Contact() {
                 </div>
               </div>
 
-              <div className="flex gap-3" style={{ marginTop: "32px" }}>
+              <div className="flex flex-col gap-3 sm:flex-row" style={{ marginTop: "32px" }}>
                 <a
                   href="https://wa.me/919667949344?text=Hi!%20I%20want%20to%20know%20more%20about%20ALL%20FIT%20GYM"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-1 flex items-center justify-center gap-2 font-['Poppins'] font-semibold rounded-xl transition-all duration-300 text-sm"
+                  className="flex flex-1 items-center justify-center gap-2 rounded-xl font-['Poppins'] text-sm font-semibold transition-all duration-300"
                   style={{ background: "rgba(34,197,94,0.15)", color: "#22C55E", paddingTop: "16px", paddingBottom: "16px" }}
                   onMouseEnter={(e) => e.target.style.background = "rgba(34,197,94,0.25)"}
                   onMouseLeave={(e) => e.target.style.background = "rgba(34,197,94,0.15)"}
@@ -148,7 +148,7 @@ export default function Contact() {
                 </a>
                 <a
                   href="tel:+919667949344"
-                  className="flex-1 flex items-center justify-center gap-2 font-['Poppins'] font-semibold rounded-xl transition-all duration-300 text-sm"
+                  className="flex flex-1 items-center justify-center gap-2 rounded-xl font-['Poppins'] text-sm font-semibold transition-all duration-300"
                   style={{ border: "1px solid rgba(255,255,255,0.12)", color: "white", paddingTop: "16px", paddingBottom: "16px" }}
                   onMouseEnter={(e) => {
                     e.target.style.borderColor = "rgba(139,92,246,0.4)";
@@ -192,7 +192,7 @@ export default function Contact() {
                 background: "#171A20",
                 border: "1px solid rgba(255,255,255,0.08)",
                 boxShadow: "0 4px 24px rgba(0,0,0,0.2), 0 1px 4px rgba(0,0,0,0.1)",
-                padding: "24px",
+                padding: "clamp(20px, 6vw, 24px)",
               }}
             >
               <h3 className="font-['Poppins'] text-xl font-semibold text-white" style={{ marginBottom: "12px" }}>Send Us a Message</h3>
@@ -202,7 +202,7 @@ export default function Contact() {
 
               <form onSubmit={submit} className="flex-1 flex flex-col">
                 <div style={{ display: "flex", flexDirection: "column", gap: "16px", marginBottom: "20px" }}>
-                  <div>
+                  <div className="min-w-0">
                     <label className="font-['Poppins'] text-sm font-medium block" style={{ color: "#D1D5DB", marginBottom: "8px" }}>
                       Your Name
                     </label>
@@ -238,7 +238,7 @@ export default function Contact() {
                     />
                   </div>
 
-                  <div>
+                  <div className="min-w-0">
                     <label className="font-['Poppins'] text-sm font-medium block" style={{ color: "#D1D5DB", marginBottom: "16px" }}>
                       Phone Number
                     </label>
@@ -294,7 +294,7 @@ export default function Contact() {
                     </AnimatePresence>
                   </div>
 
-                  <div>
+                  <div className="min-w-0">
                     <label className="font-['Poppins'] text-sm font-medium block" style={{ color: "#D1D5DB", marginBottom: "16px" }}>
                       Your Message
                     </label>
