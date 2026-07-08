@@ -20,7 +20,7 @@ export default function Facilities() {
     <section
       id="facilities"
       ref={ref}
-      className="bg-dark-100"
+      className="overflow-hidden bg-dark-100"
       style={{
         paddingTop: "clamp(30px, 3vw, 50px)",
         paddingBottom: "clamp(40px, 4vw, 60px)"
@@ -54,14 +54,14 @@ export default function Facilities() {
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 lg:gap-8">
           {facilities.map((f, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 24 }}
               animate={inview ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.4, delay: i * 0.08 }}
-              className="group relative rounded-2xl overflow-hidden transition-all duration-500 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/20"
+              className="group relative min-w-0 overflow-hidden rounded-2xl transition-all duration-500 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/20"
               style={{ background: "#171A20" }}
             >
               <div className="relative aspect-[16/10] overflow-hidden">
@@ -75,7 +75,7 @@ export default function Facilities() {
                   <f.icon className="w-4 h-4 text-white" />
                 </div>
               </div>
-              <div className="px-6 pb-7 -mt-1">
+              <div className="-mt-1 px-5 pb-6 sm:px-6 sm:pb-7">
                 <h3 className="text-lg font-display font-bold text-white mb-2">
                   {f.title}
                 </h3>
@@ -88,4 +88,3 @@ export default function Facilities() {
     </section>
   );
 }
-

@@ -18,7 +18,7 @@ export default function Transformations() {
     <section
       id="transformations"
       ref={ref}
-      className="bg-dark-100"
+      className="overflow-hidden bg-dark-100"
       style={{
         paddingTop: "clamp(20px, 2vw, 40px)",
         paddingBottom: "clamp(30px, 3vw, 50px)"
@@ -52,14 +52,14 @@ export default function Transformations() {
           </p>
         </motion.div>
 
-        <div className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-8 w-full [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden sm:grid sm:grid-cols-2 xl:grid-cols-4 sm:gap-8 lg:gap-10 sm:overflow-x-visible sm:pb-0">
+        <div className="flex w-full max-w-full snap-x snap-mandatory gap-5 overflow-x-auto overscroll-x-contain pb-8 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden sm:grid sm:grid-cols-2 sm:gap-8 sm:overflow-x-visible sm:pb-0 lg:gap-10 xl:grid-cols-4">
           {transformations.map((t, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 24 }}
               animate={inview ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.4, delay: i * 0.08 }}
-              className="group rounded-3xl transition-all duration-500 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-black/20 shrink-0 w-[calc(100vw-4rem)] sm:w-auto snap-center flex flex-col h-full"
+              className="group flex h-full w-full shrink-0 snap-center flex-col rounded-3xl transition-all duration-500 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-black/20 sm:w-auto"
               style={{ background: "#171A20", padding: "12px" }}
             >
               <div className="relative aspect-[4/5] rounded-2xl overflow-hidden">
@@ -83,8 +83,8 @@ export default function Transformations() {
               </div>
 
               <div className="flex flex-col flex-grow" style={{ paddingTop: "10px" }}>
-                <div className="flex items-center justify-between mb-5">
-                  <h3 className="text-base font-display font-bold text-white">{t.name}</h3>
+                <div className="mb-5 flex flex-wrap items-center justify-between gap-2">
+                  <h3 className="font-display text-base font-bold leading-snug text-white">{t.name}</h3>
                   <div className="flex items-center gap-1.5 text-xs text-text-muted">
                     <Clock className="w-3.5 h-3.5" />
                     {t.timeline}
@@ -104,7 +104,7 @@ export default function Transformations() {
 
                 <div className="flex items-center gap-2 pt-4 border-t border-white/[0.04] mt-auto">
                   <Target className="w-3.5 h-3.5 text-purple/60" />
-                  <span className="text-xs font-medium text-purple/60">{t.result}</span>
+                  <span className="text-xs font-medium leading-snug text-purple/60">{t.result}</span>
                 </div>
               </div>
             </motion.div>

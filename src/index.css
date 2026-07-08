@@ -26,15 +26,53 @@
 
 html {
   scroll-behavior: smooth;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
 }
 
 body {
   font-family: var(--font-body);
   background-color: var(--color-dark);
   color: var(--color-text-secondary);
-  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+img,
+svg,
+video,
+canvas,
+iframe {
+  max-width: 100%;
+}
+
+input,
+textarea,
+select,
+button {
+  min-width: 0;
+}
+
+a,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span {
+  overflow-wrap: break-word;
 }
 
 ::-webkit-scrollbar {
@@ -62,6 +100,12 @@ body {
   margin-right: auto;
   padding-left: 2rem;
   padding-right: 2rem;
+}
+@media (max-width: 640px) {
+  .premium-container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 }
 @media (min-width: 1024px) {
   .premium-container {
@@ -110,6 +154,8 @@ body {
   transition: all 0.3s ease;
   text-decoration: none;
   white-space: nowrap;
+  max-width: 100%;
+  text-align: center;
   box-shadow: 0 4px 20px rgba(139, 92, 246, 0.2);
 }
 .btn-premium:hover {
@@ -136,6 +182,8 @@ body {
   transition: all 0.3s ease;
   text-decoration: none;
   white-space: nowrap;
+  max-width: 100%;
+  text-align: center;
 }
 .btn-outline-premium:hover {
   border-color: rgba(139, 92, 246, 0.4);
@@ -185,6 +233,36 @@ body {
   color: #80889A;
   line-height: 1.75;
   max-width: 520px;
+}
+
+@media (max-width: 640px) {
+  .btn-premium,
+  .btn-outline-premium {
+    width: 100%;
+    min-height: 48px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    white-space: normal;
+  }
+
+  .section-label {
+    max-width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .section-label span {
+    letter-spacing: 0.06em;
+  }
+
+  .section-heading {
+    font-size: 1.9rem;
+    line-height: 1.12;
+  }
+
+  .section-subtext {
+    max-width: 100%;
+    line-height: 1.65;
+  }
 }
 
 .gradient-text {

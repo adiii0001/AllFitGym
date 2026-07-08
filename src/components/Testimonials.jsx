@@ -45,7 +45,7 @@ export default function Testimonials() {
     <section
       id="testimonials"
       ref={ref}
-      className="bg-dark-100"
+      className="overflow-hidden bg-dark-100"
       style={{
         paddingTop: "clamp(30px, 3vw, 50px)",
         paddingBottom: "clamp(40px, 4vw, 60px)"
@@ -79,9 +79,9 @@ export default function Testimonials() {
           </p>
         </motion.div>
 
-        <div className="relative overflow-hidden">
+        <div className="relative max-w-full overflow-hidden">
           <motion.div
-            className="flex gap-6 lg:gap-8"
+            className="flex max-w-full gap-6 lg:gap-8"
             animate={{ x: `calc(-${cur * (100 / pp)}% - ${cur * (gap / pp)}px)` }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
           >
@@ -92,15 +92,15 @@ export default function Testimonials() {
                 style={{ width: `calc(${100 / pp}% - ${((pp - 1) * gap) / pp}px)` }}
               >
                 <div
-                  className="glass rounded-2xl h-full flex flex-col transition-all duration-300 hover:bg-white/[0.03]"
-                  style={{ padding: "44px 36px" }}
+                  className="flex h-full min-w-0 flex-col rounded-2xl transition-all duration-300 hover:bg-white/[0.03] glass"
+                  style={{ padding: "clamp(28px, 8vw, 44px) clamp(20px, 7vw, 36px)" }}
                 >
                   <div className="flex items-center gap-5 mb-6 shrink-0" style={{ padding: "4px 0" }}>
                     <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple to-purple-dark flex items-center justify-center text-white font-bold text-base shrink-0">
                       {t.avatar}
                     </div>
-                    <div style={{ paddingLeft: "2px" }}>
-                      <div className="text-base font-bold text-white" style={{ marginBottom: "6px" }}>{t.name}</div>
+                    <div className="min-w-0" style={{ paddingLeft: "2px" }}>
+                      <div className="text-base font-bold leading-snug text-white" style={{ marginBottom: "6px" }}>{t.name}</div>
                       <div className="text-xs text-text-muted">{t.program}</div>
                     </div>
                   </div>
@@ -117,7 +117,7 @@ export default function Testimonials() {
                     &ldquo;{t.text}&rdquo;
                   </p>
 
-                  <div className="flex items-center justify-between shrink-0 mt-8 pt-6 border-t border-white/[0.04]">
+                  <div className="mt-8 flex shrink-0 flex-wrap items-center justify-between gap-3 border-t border-white/[0.04] pt-6">
                     <div className="flex items-center gap-2">
                       <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none">
                         <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/>
@@ -172,4 +172,3 @@ export default function Testimonials() {
     </section>
   );
 }
-

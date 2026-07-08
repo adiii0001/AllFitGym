@@ -1,5 +1,5 @@
 "use client";
-import { Dumbbell, MapPin, Phone, Mail, ArrowRight, Heart } from "lucide-react";
+import { MapPin, Phone, Mail, ArrowRight, Heart } from "lucide-react";
 
 const quickLinks = [
   { name: "Home", href: "#home" },
@@ -41,16 +41,16 @@ const contactInfo = [
 export default function Footer() {
   return (
     <footer
-      className="mt-32 border-t border-white/[0.08] bg-dark-100"
+      className="mt-24 overflow-hidden border-t border-white/[0.08] bg-dark-100 sm:mt-32"
       style={{
-        paddingTop: "90px",
+        paddingTop: "clamp(60px, 9vw, 90px)",
         paddingBottom: "40px",
       }}
     >
       <div className="premium-container mb-24 lg:mb-32">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-y-12 gap-x-6 sm:gap-x-16 lg:gap-x-24">
           <div className="col-span-1 sm:col-span-2 lg:col-span-4">
-            <a href="#home" className="flex items-center gap-3 mb-10">
+            <a href="#home" className="mb-10 flex min-w-0 items-center gap-3">
               <div className="rounded-xl flex items-center justify-center overflow-hidden" style={{ width: "90px", height: "90px" }}>
                 <img
                   src="/images/93ee5950-3ef0-4cbb-981f-2562cb0c55d8-removebg-preview.png"
@@ -59,7 +59,7 @@ export default function Footer() {
                   style={{ transform: "scale(2.5)", transformOrigin: "center" }}
                 />
               </div>
-              <span className="text-xl font-display font-bold text-white">
+              <span className="min-w-0 text-xl font-display font-bold text-white">
                 ALL FIT<span className="gradient-text ml-0.5">GYM</span>
               </span>
             </a>
@@ -139,7 +139,7 @@ export default function Footer() {
                       }}
                     >
                       <c.icon className="w-4.5 h-4.5 text-purple/50 mt-0.5 shrink-0" />
-                      <span>{c.text}</span>
+                      <span className="min-w-0">{c.text}</span>
                     </a>
                   ) : (
                     <div
@@ -153,7 +153,7 @@ export default function Footer() {
                       }}
                     >
                       <c.icon className="w-4.5 h-4.5 text-purple/50 mt-0.5 shrink-0" />
-                      <span className="whitespace-pre-line leading-relaxed">{c.text}</span>
+                      <span className="min-w-0 whitespace-pre-line leading-relaxed">{c.text}</span>
                     </div>
                   )}
                 </li>
@@ -178,7 +178,7 @@ export default function Footer() {
             >
               Stay updated with fitness tips and exclusive offers.
             </p>
-            <div className="flex gap-2" style={{ paddingTop: "8px" }}>
+            <div className="flex min-w-0 gap-2" style={{ paddingTop: "8px" }}>
               <input
                 type="email"
                 placeholder="your@email.com"

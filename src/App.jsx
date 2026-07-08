@@ -30,7 +30,7 @@ export default function App() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
-            className="min-h-screen bg-dark"
+            className="min-h-screen w-full max-w-full overflow-x-clip bg-dark"
           >
             <Navbar />
             <Hero />
@@ -50,4 +50,3 @@ export default function App() {
     </>
   );
 }
-

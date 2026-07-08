@@ -105,15 +105,15 @@ export default function Trainers() {
   const isCarousel = trainers.length > 5;
 
   const containerClass = isCarousel
-    ? "flex overflow-x-auto snap-x snap-mandatory gap-6 pb-8 w-full max-w-full [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
-    : "flex overflow-x-auto snap-x snap-mandatory gap-5 pb-8 w-full max-w-full [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 sm:overflow-x-visible sm:pb-0";
+    ? "flex w-full max-w-full snap-x snap-mandatory gap-5 overflow-x-auto overscroll-x-contain pb-8 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden sm:gap-6"
+    : "flex w-full max-w-full snap-x snap-mandatory gap-5 overflow-x-auto overscroll-x-contain pb-8 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden sm:grid sm:grid-cols-2 sm:overflow-x-visible sm:pb-0 lg:grid-cols-3 xl:grid-cols-5";
 
   const cardClass = isCarousel
-    ? "group relative rounded-2xl overflow-hidden transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/30 shrink-0 w-[calc(100vw-4rem)] sm:w-[280px] lg:w-[320px] snap-center"
-    : "group relative rounded-2xl overflow-hidden transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/30 shrink-0 w-[calc(100vw-4rem)] snap-center sm:shrink sm:w-auto";
+    ? "group relative w-full shrink-0 snap-center overflow-hidden rounded-2xl transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/30 sm:w-[280px] lg:w-[320px]"
+    : "group relative w-full shrink-0 snap-center overflow-hidden rounded-2xl transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/30 sm:w-auto sm:shrink";
 
   return (
-    <section id="trainers" ref={ref} className="py-24 lg:py-[120px] bg-dark-100">
+    <section id="trainers" ref={ref} className="overflow-hidden bg-dark-100 py-20 sm:py-24 lg:py-[120px]">
       <div className="premium-container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -178,9 +178,9 @@ export default function Trainers() {
                     className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#171A20] via-[#171A20]/90 to-transparent"
                     style={{ padding: "28px 24px 24px 24px" }}
                   >
-                    <h3 className="text-base font-display font-bold text-white mb-1.5">{t.name}</h3>
-                    <p className="text-xs text-text-muted mb-1.5">{t.spec}</p>
-                    <div className="flex items-center gap-3 mt-3">
+                    <h3 className="mb-1.5 font-display text-base font-bold leading-snug text-white">{t.name}</h3>
+                    <p className="mb-1.5 text-xs leading-snug text-text-muted">{t.spec}</p>
+                    <div className="mt-3 flex flex-wrap items-center gap-2.5">
                       <div className="flex items-center gap-1">
                         <Award className="w-3 h-3 text-purple" />
                         <span className="text-xs text-purple font-medium">{t.cert}</span>
@@ -232,4 +232,3 @@ export default function Trainers() {
     </section>
   );
 }
-
