@@ -85,14 +85,6 @@ function getExperienceYears(name, hash) {
   return 5 + (hash % 6);
 }
 
-function getRating(role, years) {
-  if (role === "General Trainer") return "4.4";
-  if (years <= 2) return "4.6";
-  if (years <= 5) return "4.7";
-  if (years <= 7) return "4.8";
-  return "4.9";
-}
-
 function getReviewCount(role, years, hash) {
   if (role === "General Trainer") return 48;
   return 70 + years * 18 + hash * 6;
@@ -118,7 +110,7 @@ export default function Trainers() {
           spec: specializations[h % specializations.length],
           exp: `${years} Years`,
           cert: certifications[h % certifications.length],
-          rating: getRating(role, years),
+          rating: "5.0",
           reviews: getReviewCount(role, years, h),
           bio: bios[h % bios.length],
         };
